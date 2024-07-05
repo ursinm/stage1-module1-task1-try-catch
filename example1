@@ -1,0 +1,31 @@
+public class example1 {
+    public static void main(String[] args) {
+        // Пример массива строк WORDS
+      
+        String[] WORDS = {"The", "total", "is", "42", "and", "the", "sum", "is", "58"};
+
+        // Переменные для хранения суммы чисел и итоговой строки
+        int sum = 0;
+        StringBuilder sentence = new StringBuilder();
+
+        // Обработка массива слов
+        for (String word : WORDS) {
+            // Попытка преобразовать слово в число
+            try {
+                int number = Integer.parseInt(word);
+                sum += number;
+            } catch (NumberFormatException e) {
+                // Если слово не является числом, просто добавляем его в предложение
+                if (sentence.length() > 0) {
+                    sentence.append(" ");
+                }
+                sentence.append(word);
+            }
+        }
+
+        // Вывод результата
+        System.out.println("Сумма чисел: " + sum);
+        System.out.println("Соединённая строка: " + sentence.toString());
+    }
+}
+
